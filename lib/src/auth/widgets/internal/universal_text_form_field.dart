@@ -75,10 +75,23 @@ class UniversalTextFormField extends PlatformWidget {
       decoration: InputDecoration(
         labelText: placeholder,
         prefix: prefix,
-        errorStyle: Theme.of(context)
-            .inputDecorationTheme
-            .errorStyle
-            ?.copyWith(color: const Color(0xFFED5454)),
+        errorBorder:
+            Theme.of(context).inputDecorationTheme.errorBorder?.copyWith(
+                      borderSide: const BorderSide(
+                        color: Color(0xFFED5454),
+                      ),
+                    ) ??
+                const UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color(0xFFED5454),
+                  ),
+                ),
+        errorStyle: Theme.of(context).inputDecorationTheme.errorStyle?.copyWith(
+                  color: const Color(0xFFED5454),
+                ) ??
+            const TextStyle(
+              color: Color(0xFFED5454),
+            ),
       ),
       validator: validator,
       onFieldSubmitted: onSubmitted,
