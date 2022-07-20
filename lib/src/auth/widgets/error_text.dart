@@ -52,7 +52,7 @@ class ErrorText extends StatelessWidget {
     if (isCupertino) {
       color = CupertinoColors.destructiveRed;
     } else {
-      color = Theme.of(context).errorColor;
+      color = const Color(0xFFED5454);
     }
 
     final l = FlutterFireUILocalizations.labelsOf(context);
